@@ -30,6 +30,10 @@ public class Despensa {
     return "No se encontro el ingrediente";
   }
 
+  public Ingrediente[] getIngredientes() {
+    return ingredientes;
+  }
+
   @Override
   public String toString() {
     String despensaStr = "Despensa:\n";
