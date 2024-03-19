@@ -1,8 +1,12 @@
 package src.main.um;
 
+import src.main.um.entidades.Chef;
 import src.main.um.entidades.Despensa;
 import src.main.um.entidades.Ingrediente;
 import src.main.um.recetas.*;
+import src.main.um.services.CocinaService;
+
+import javax.sound.midi.Soundbank;
 
 public class Aplicacion {
   public static void main(String[] args) {
@@ -17,6 +21,7 @@ public class Aplicacion {
     despensa.addIngrediente(azucar1);
     despensa.addIngrediente(sal1);
     despensa.addIngrediente(pimienta1);
+    System.out.println();
 
     System.out.println(despensa.getIngrediente("Azucar1", 5));
     System.out.println(despensa.getIngrediente("Sal1", 25));
@@ -73,5 +78,49 @@ public class Aplicacion {
                 + receta.queFalta(despensaParaRecetas));
       }
     }
+
+    System.out.println("------------------------------------------");
+
+    System.out.println("PROBANDO COCINA SERVICE");
+
+    Despensa despensaCocinaService = new Despensa(10);
+
+    Ingrediente azucarCocinaService = new Ingrediente("Azucar", 5);
+    Ingrediente salCocinaService = new Ingrediente("Sal", 1);
+    Ingrediente pimientaCocinaService = new Ingrediente("Pimienta", 0);
+    Ingrediente huevosCocinaService = new Ingrediente("Huevos", 10);
+    Ingrediente mantequillaCocinaService = new Ingrediente("Mantequilla", 5);
+    Ingrediente tomatesCocinaService = new Ingrediente("Tomates", 10);
+    Ingrediente manzanaCocinaService = new Ingrediente("Manzana", 5);
+    Ingrediente espaguetisCocinaService = new Ingrediente("Espaguetis", 200);
+    Ingrediente salsaDeTomateCocinaService = new Ingrediente("Salsa de Tomate", 150);
+    Ingrediente heladoCocinaService = new Ingrediente("Helado", 2);
+
+    despensaCocinaService.addIngrediente(azucarCocinaService);
+    despensaCocinaService.addIngrediente(salCocinaService);
+    despensaCocinaService.addIngrediente(pimientaCocinaService);
+    despensaCocinaService.addIngrediente(huevosCocinaService);
+    despensaCocinaService.addIngrediente(mantequillaCocinaService);
+    despensaCocinaService.addIngrediente(tomatesCocinaService);
+    despensaCocinaService.addIngrediente(manzanaCocinaService);
+    despensaCocinaService.addIngrediente(espaguetisCocinaService);
+    despensaCocinaService.addIngrediente(salsaDeTomateCocinaService);
+    despensaCocinaService.addIngrediente(heladoCocinaService);
+
+    System.out.println("Despensa: " + despensaCocinaService);
+    Chef chef = new Chef("Linguini", 5);
+    CocinaService cocinaService = new CocinaService(despensaCocinaService);
+
+    HuevosRevueltos huevosRevueltos = new HuevosRevueltos();
+
+    System.out.println(chef.cocinar(cocinaService, huevosRevueltos));
+
+    SopaDeTomate sopaDeTomate = new SopaDeTomate();
+
+    System.out.println("\n");
+
+    System.out.println(chef.cocinar(cocinaService, sopaDeTomate));
+
+    System.out.println(despensaCocinaService);
   }
 }

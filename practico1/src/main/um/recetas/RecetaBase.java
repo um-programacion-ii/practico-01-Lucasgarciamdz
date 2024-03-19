@@ -48,9 +48,9 @@ public class RecetaBase {
     for (Ingrediente ingrediente : this.getIngredientes()) {
       if (ingrediente != null) {
         String hayIngredientes =
-                despensa.getIngrediente(ingrediente.getNombre(), ingrediente.getCantidad());
+            despensa.getIngrediente(ingrediente.getNombre(), ingrediente.getCantidad());
         if (hayIngredientes.equals("No se encontro el ingrediente")
-                || hayIngredientes.startsWith("No hay suficiente")) {
+            || hayIngredientes.startsWith("No hay suficiente")) {
           return false;
         }
       }
@@ -63,9 +63,9 @@ public class RecetaBase {
     for (Ingrediente ingrediente : this.getIngredientes()) {
       if (ingrediente != null) {
         String hayIngredientes =
-                despensa.getIngrediente(ingrediente.getNombre(), ingrediente.getCantidad());
+            despensa.getIngrediente(ingrediente.getNombre(), ingrediente.getCantidad());
         if (hayIngredientes.equals("No se encontro el ingrediente")
-                || hayIngredientes.startsWith("No hay suficiente")) {
+            || hayIngredientes.startsWith("No hay suficiente")) {
           faltan += hayIngredientes + "\n";
         }
       }
